@@ -19,7 +19,7 @@ export default async function Home() {
   try {
   messages = await axios(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032227")}`, {
     fetchOptions: {
-      cache: "no-cache"
+      cache: "no-store"
     },
     headers: {
       Authorization: `Bot ${process.env.TOKEN}`
