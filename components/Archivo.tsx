@@ -1,0 +1,28 @@
+import React from 'react'
+import axios from 'axios'
+
+
+const Archivo = async ({ url }: { url: string}) => {
+
+    const res = await axios(url)
+    console.log(res.data)
+
+    const types = {
+        image: ['png', 'jpg', 'jpeg', 'webp'],
+        langs: ['txt', 'psc', 'cpp']
+    }
+
+    if (types.image.some(e => url.includes(e))) {
+        return <img src={url} alt="" />
+    } else {
+
+        return (
+
+            <p className='bg-gray-500 text-white rounded p-2 border border-black whitespace-pre'>
+                {`${res.data}`}
+            </p>
+        )
+    }
+}
+
+export default Archivo
