@@ -18,12 +18,14 @@ export default async function Home() {
   console.log(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032227")}`)
   try {
   messages = await axios(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032227")}`, {
+    fetchOptions: {
+      cache: "no-cache"
+    },
     headers: {
       Authorization: `Bot ${process.env.TOKEN}`
     }
   })
   } catch (e:any) {
-    console.log(e.message)
   }
   
 

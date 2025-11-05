@@ -5,7 +5,6 @@ import axios from 'axios'
 const Archivo = async ({ url }: { url: string}) => {
 
     const res = await axios(url)
-    console.log(res.data)
 
     const types = {
         image: ['png', 'jpg', 'jpeg', 'webp'],

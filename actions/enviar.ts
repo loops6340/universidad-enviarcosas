@@ -4,7 +4,7 @@ import axios from 'axios'
 import FormDataServer from 'form-data'
 import { headers } from 'next/headers';
 import { Readable } from 'stream';
-import { refresh } from 'next/cache';
+import { refresh, revalidatePath } from 'next/cache';
 
 
 const DISCORD_TOKEN = process.env.TOKEN
@@ -27,8 +27,7 @@ const enviarCodigo = async (formData: FormData) => {
       }
     })
 
-  console.log(res.data)
-  refresh()
+  revalidatePath("/")
 }
 
 export default enviarCodigo
@@ -47,8 +46,7 @@ const enviarMensaje = async (formData: FormData) => {
         Authorization: `Bot ${DISCORD_TOKEN}`
       }
     })
-  console.log(res.data)
-  refresh()
+  revalidatePath("/")
 
 }
 
