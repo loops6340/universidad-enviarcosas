@@ -8,10 +8,14 @@ import Archivo from "@/components/Archivo";
 import randomCol from 'randomcolor'
 import CajaDeTexto from "@/components/CajaDeTexto";
 import { refresh, revalidatePath } from "next/cache";
+  console.log(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032227")}`)
+console.log(`Bot ${process.env.TOKEN}`)
+
 export default async function Home() {
   const regex = /^\{([^}]+)\}:(.+)$/;
   let messages: any;
 
+  console.log(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032227")}`)
   try {
   messages = await axios(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032227")}`, {
     headers: {
