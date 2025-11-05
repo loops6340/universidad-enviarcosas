@@ -7,20 +7,26 @@ import { Suspense } from "react";
 import Archivo from "@/components/Archivo";
 import randomCol from 'randomcolor'
 import CajaDeTexto from "@/components/CajaDeTexto";
-import { refresh } from "next/cache";
+import { refresh, revalidatePath } from "next/cache";
 export default async function Home() {
   const regex = /^\{([^}]+)\}:(.+)$/;
+  let messages: any;
 
-  const messages: any = await axios(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032227")}`, {
+  try {
+  messages = await axios(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032227")}`, {
     headers: {
       Authorization: `Bot ${process.env.TOKEN}`
     }
   })
+  } catch (e:any) {
+    console.log(e.message)
+  }
+  
 
 
   const refrescarPagina = async () => {
     "use server"
-    refresh()
+    revalidatePath("/")
   }
 
   return (
