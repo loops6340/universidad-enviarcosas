@@ -13,10 +13,24 @@ const CHANNEL_ID = '1425268109434032227';
 
 const enviarCodigo = async (formData: FormData) => {
   const contenido = formData.get("contenido") as string
-  const lang = formData.get("lang")
+  let lang = formData.get("lang")
   const form = new FormDataServer()
   const buffer = Buffer.from(contenido, "utf-8")
   const stream = Readable.from(buffer)
+
+
+  switch (lang) {
+    case "c++":
+      lang = "cpp"
+      break;
+    case "txt":
+      lang = "txt"
+    case "pseint":
+      lang = "psc"
+    default:
+      lang = "txt"
+      break;
+  }
 
   form.append('files[0]', stream, `archivo.${lang}`);
   const res = await axios.post(`https://discord.com/api/v10/channels/${CHANNEL_ID}/messages`, form,

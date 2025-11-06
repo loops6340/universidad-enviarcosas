@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-
+import Codigo from './Archivo/Codigo'
 
 const Archivo = async ({ url }: { url: string}) => {
 
@@ -17,9 +17,10 @@ const Archivo = async ({ url }: { url: string}) => {
 
         return (
 
-            <p className='bg-gray-500 text-white rounded p-2 border border-black whitespace-pre'>
-                {`${res.data}`}
-            </p>
+            <Codigo data={res.data} />
+            // <p className='bg-gray-500 text-white rounded p-2 border border-black whitespace-pre'>
+            //     {`${res.data}`}
+            // </p>
         )
     }
 }

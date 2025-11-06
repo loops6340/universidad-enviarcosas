@@ -8,7 +8,7 @@ export default function FormularoDeEnvioADiscord() {
 
 
   return (
-    <div className="flex flex-col p-2 border border-black m-2 bg-zinc-50">
+    <div className="hidden md:flex flex-col p-2 border border-black m-2 bg-zinc-50">
       <h1>Enviar codigo xd</h1>
       <form action={enviar} className="bg-zinc-50" >
         <div className="flex gap-2 items-stretch">

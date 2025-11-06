@@ -8,8 +8,8 @@ import Archivo from "@/components/Archivo";
 import randomCol from 'randomcolor'
 import CajaDeTexto from "@/components/CajaDeTexto";
 import { refresh, revalidatePath } from "next/cache";
-  console.log(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032227")}`)
-console.log(`Bot ${process.env.TOKEN}`)
+
+
 
 export default async function Home() {
   const regex = /^\{([^}]+)\}:(.+)$/;
@@ -36,7 +36,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="flex max-h-screen items-center justify-center font-sans text-black bg-amber-200 border-b border-black">
+    <div className="flex flex-col-reverse md:flex-row max-h-screen items-center justify-center font-sans text-black bg-amber-200 border-b border-black">
       <FormularioDeEnvioADiscord />
       <div className="relative max-h-screen w-full flex flex-col bg-zinc-50 border-l border-black">
         <button
