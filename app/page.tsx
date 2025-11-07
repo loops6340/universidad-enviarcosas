@@ -40,7 +40,7 @@ export default async function Home() {
       <FormularioDeEnvioADiscord />
       <div className="relative max-h-screen w-full flex flex-col bg-zinc-50 border-l border-black">
         <button
-         className="border border-black absolute right-9 bottom-13 bg-amber-200 p-2 transition-[0.2s] hover:bg-cyan-200 cursor-pointer"
+         className="border z-50  border-black absolute right-9 bottom-13 bg-amber-200 p-2 transition-[0.2s] hover:bg-cyan-200 cursor-pointer"
          onClick={refrescarPagina}
          >Actualizar mensajes</button>
         
