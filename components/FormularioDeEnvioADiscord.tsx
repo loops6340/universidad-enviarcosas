@@ -16,6 +16,8 @@ export default function FormularoDeEnvioADiscord() {
           <label htmlFor="txt">txt</label>
           <input type="radio" name="lang" id="cpp" value="c++" />
           <label htmlFor="cpp">c++</label>
+          <input type="radio" name="lang" id="pseint" value="psc" />
+          <label htmlFor="pseint">psc</label>
         </div>
         <textarea name="contenido" id="contenido" className="w-80 h-96 border border-black p-1" placeholder="escribir codigo"></textarea>
         {/* <input className="" type="file" name="subir archivo" id="" /> */}

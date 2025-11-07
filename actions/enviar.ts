@@ -25,7 +25,7 @@ const enviarCodigo = async (formData: FormData) => {
       break;
     case "txt":
       lang = "txt"
-    case "pseint":
+    case "psc":
       lang = "psc"
     default:
       lang = "txt"
