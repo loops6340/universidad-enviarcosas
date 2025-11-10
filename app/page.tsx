@@ -17,7 +17,7 @@ export default async function Home() {
 
   console.log(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032227")}`)
   try {
-  messages = await axios(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032227")}`, {
+  messages = await axios(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032225")}`, {
     fetchOptions: {
       cache: "no-store"
     },
