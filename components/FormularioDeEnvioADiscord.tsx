@@ -8,9 +8,11 @@ export default function FormularoDeEnvioADiscord() {
 
 
   return (
+
+    <div className="h-screen bg-amber-200 w-[300px]">
     <div className="hidden md:flex flex-col p-2 border border-black m-2 bg-zinc-50">
       <h1>Enviar codigo xd</h1>
-      <form action={enviar} className="bg-zinc-50" >
+      <form action={enviar} className="flex flex-col gap-2 bg-zinc-50" >
         <div className="flex gap-2 items-stretch">
           <input type="radio" name="lang" id="txt" value="txt" />
           <label htmlFor="txt">txt</label>
@@ -19,13 +21,14 @@ export default function FormularoDeEnvioADiscord() {
           <input type="radio" name="lang" id="pseint" value="psc" />
           <label htmlFor="pseint">pseint</label>
         </div>
-        <textarea name="contenido" id="contenido" className="w-80 h-96 border border-black p-1" placeholder="escribir codigo"></textarea>
-        {/* <input className="" type="file" name="subir archivo" id="" /> */}
+        <textarea name="contenido" id="contenido" className="w-full h-96 border border-black p-1" placeholder="escribir codigo"></textarea>
         <button className="bg-amber-200 transition-[0.2s] p-2 border border-black hover:bg-cyan-200 cursor-pointer">Enviar</button>
       </form>
 
 
     </div>
+    </div>
+
 
   );
 }

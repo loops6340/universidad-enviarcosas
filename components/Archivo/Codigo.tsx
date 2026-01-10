@@ -5,7 +5,7 @@ import { okaidia } from '@uiw/codemirror-theme-okaidia';
 
 const Codigo = ({data}: {data:any}) => {
   return (
-    <CodeMirror  value={data} theme={okaidia} extensions={[javascript({ jsx: true })]} />
+    <CodeMirror className='w-full' value={data} theme={okaidia} extensions={[javascript({ jsx: true })]} />
   )
 }
 
