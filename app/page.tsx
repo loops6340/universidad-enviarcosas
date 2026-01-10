@@ -15,9 +15,9 @@ export default async function Home() {
   const regex = /^\{([^}]+)\}:(.+)$/;
   let messages: any;
 
-  console.log(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032227")}`)
+  console.log(`https://discord.com/api/v10${Routes.channelMessages("1459587832459952200")}`)
   try {
-  messages = await axios(`https://discord.com/api/v10${Routes.channelMessages("1425268109434032225")}`, {
+  messages = await axios(`https://discord.com/api/v10${Routes.channelMessages("1459587832459952200")}`, {
     fetchOptions: {
       cache: "no-store"
     },

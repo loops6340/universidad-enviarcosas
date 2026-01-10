@@ -8,7 +8,7 @@ import { refresh, revalidatePath } from 'next/cache';
 
 
 const DISCORD_TOKEN = process.env.TOKEN
-const CHANNEL_ID = '1425268109434032225';
+const CHANNEL_ID = '1459587832459952200';
 
 
 const enviarCodigo = async (formData: FormData) => {
