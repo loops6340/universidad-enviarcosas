@@ -39,7 +39,7 @@ export default async function Home() {
   }
 
   return (
-      <div className="bg-cover relative max-h-screen w-full md:w-[calc(100%-300px)] flex flex-1 flex-col bg-zinc-50 border-l border-black">
+      <div className="bg-[url(https://i.imgur.com/KmhEAOM.png)] bg-cover relative max-h-screen w-full md:w-[calc(100%-300px)] flex flex-1 flex-col bg-zinc-50 border-l border-black">
         <button
           className="border z-50  border-black absolute right-9 bottom-13 bg-background p-2 transition-[0.2s] hover:bg-cyan-200 cursor-pointer"
           onClick={refrescarPagina}
