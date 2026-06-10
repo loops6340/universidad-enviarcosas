@@ -4,7 +4,7 @@ import axios from 'axios'
 import FormDataServer from 'form-data'
 import { headers } from 'next/headers';
 import { Readable } from 'stream';
-import { refresh, revalidatePath } from 'next/cache';
+import { refresh, revalidatePath, updateTag } from 'next/cache';
 
 
 const DISCORD_TOKEN = process.env.TOKEN
@@ -27,6 +27,8 @@ const enviarCodigo = async (formData: FormData) => {
       lang = "txt"
     case "psc":
       lang = "psc"
+    case "java":
+      lang = "java"
     default:
       lang = "txt"
       break;
@@ -40,8 +42,6 @@ const enviarCodigo = async (formData: FormData) => {
         Authorization: `Bot ${DISCORD_TOKEN}`
       }
     })
-
-  revalidatePath("/")
 }
 
 
@@ -75,7 +75,6 @@ const enviarArchivo = async (formData: FormData) => {
       }
     })
 
-  revalidatePath("/")
 }
 
 const enviarMensaje = async (formData: FormData) => {
@@ -101,7 +100,6 @@ const enviarMensaje = async (formData: FormData) => {
         Authorization: `Bot ${DISCORD_TOKEN}`
       }
     })
-  revalidatePath("/")
 
 }
 

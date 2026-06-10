@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+//@ts-ignore
 import "./globals.css";
 import FormularoDeEnvioADiscord from "@/components/FormularioDeCodigo";
 import FormularioAntiBot from "@/components/FormularioAntiBot";
@@ -31,9 +32,7 @@ export default function RootLayout({
       >
 
         <FormularioAntiBot />
-        <div className="flex flex-col-reverse md:flex-row max-h-screen items-center justify-center font-sans text-black bg-background  border-b border-black">
-          <FormularoDeEnvioADiscord />
-          {children}
+        <div className="flex flex-col-reverse md:flex-row max-h-screen items-center justify-center font-sans text-black bg-background  border-b border-black">          {children}
 
         </div>
       </body>

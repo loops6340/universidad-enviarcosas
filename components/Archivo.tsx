@@ -1,11 +1,22 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Codigo from './Archivo/Codigo'
 import ArchivoClientFunc from './Archivo.client-func'
+const Archivo = ({ url }: { url: string }) => {
+    
+    const [data, setData] = useState("")
 
-const Archivo = async ({ url }: { url: string }) => {
+    const getFile = async () => {
+        const res = await axios(url)
+        return res.data;
+    }
 
-    const res = await axios(url)
+    useEffect(() => {
+        (async () => {
+            setData(await getFile());
+        })()
+    }, [])
 
     const types = {
         image: ['png', 'jpg', 'jpeg', 'webp'],
@@ -18,8 +29,8 @@ const Archivo = async ({ url }: { url: string }) => {
 
         return (
             <div>
-                <Codigo readOnly={true} dark={true} maxHeight="340px" value={res.data} />
-                <ArchivoClientFunc content={res.data}/>
+                <Codigo readOnly={true} dark={true} maxHeight="340px" value={data} />
+                <ArchivoClientFunc content={data}/>
             </div>
 
 
