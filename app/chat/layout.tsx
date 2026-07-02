@@ -9,8 +9,4 @@ function ChatLayout({ children }: { children: any }) {
     )
 }
 
-ChatLayout.defaultProps = {
-    route: "chat"
-}
-
 export default ChatLayout;
