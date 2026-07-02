@@ -24,7 +24,6 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  route: string;
 }>) {
   return (
     <html lang="en">
