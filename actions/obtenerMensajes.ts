@@ -17,4 +17,19 @@ async function obtenerMensajes() {
     return mensajes.data
 }
 
-export default obtenerMensajes;
+async function obtenerMensajesAntesDe(id: string) {
+    const mensajes = await axios(
+      `https://discord.com/api/v10${Routes.channelMessages("1459587832459952200")}?before=${id}`,
+      {
+        fetchOptions: {
+          cache: "no-store",
+        },
+        headers: {
+          Authorization: `Bot ${process.env.TOKEN}`,
+        },
+      },
+    );
+    return mensajes.data
+}
+
+export {obtenerMensajes, obtenerMensajesAntesDe};

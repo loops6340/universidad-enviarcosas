@@ -13,10 +13,12 @@ const CHANNEL_ID = '1459587832459952200';
 
 const enviarCodigo = async (formData: FormData) => {
   const contenido = formData.get("contenido") as string
+  const filename = formData.get("filename") as string
   let lang = formData.get("lang")
   const form = new FormDataServer()
   const buffer = Buffer.from(contenido, "utf-8")
   const stream = Readable.from(buffer)
+  const author = formData.get("author") as string
 
 
   switch (lang) {
@@ -33,40 +35,11 @@ const enviarCodigo = async (formData: FormData) => {
       lang = "txt"
       break;
   }
-
+  console.log(filename)
+  form.append('payload_json', JSON.stringify({ content: author ? `{${author}}:${filename}` : filename }));
+  
   form.append('files[0]', stream, `archivo.${lang}`);
-  const res = await axios.post(`https://discord.com/api/v10/channels/${CHANNEL_ID}/messages`, form,
-    {
-      headers: {
-        ...form.getHeaders(),
-        Authorization: `Bot ${DISCORD_TOKEN}`
-      }
-    })
-}
-
-
-const enviarArchivo = async (formData: FormData) => {
-  const contenido = formData.get("contenido") as string
-  let extension = formData.get("extension")
-  const form = new FormDataServer()
-  const buffer = Buffer.from(contenido, "utf-8")
-  const stream = Readable.from(buffer)
-
-
-  switch (extension) {
-    case "pdf":
-      extension = "pdf"
-      break;
-    case "txt":
-      extension = "txt"
-    case "docx":
-      extension = "psc"
-    default:
-      extension = "docx"
-      break;
-  }
-
-  form.append('files[0]', stream, `archivo.${extension}`);
+  
   await axios.post(`https://discord.com/api/v10/channels/${CHANNEL_ID}/messages`, form,
     {
       headers: {
@@ -74,23 +47,30 @@ const enviarArchivo = async (formData: FormData) => {
         Authorization: `Bot ${DISCORD_TOKEN}`
       }
     })
-
 }
 
+
+
+
 const enviarMensaje = async (formData: FormData) => {
+
+  try {
+
   const autor = formData.get("autor") as string
   const contenido = formData.get("contenido") as string
-  // const file = formData.get("file") as File
+  const file = formData.get("file") as File
 
-  // const fileArrayBuffer = await file.arrayBuffer()
+  console.log(file.size)
 
-  // const buffer = Buffer.from(fileArrayBuffer)
+  const fileArrayBuffer = await file.arrayBuffer()
 
-  // const stream = Readable.from(buffer)
+  const buffer = Buffer.from(fileArrayBuffer)
+
+  const stream = Readable.from(buffer)
 
   const form = new FormDataServer()
 
-  // form.append('files[0]', stream, `archivo.${"docx"}`);
+  form.append('files[0]', stream, `${file.name}`);
 
   form.append('payload_json', JSON.stringify({ content: autor ? `{${autor}}: ${contenido}` : contenido }));
   await axios.post(`https://discord.com/api/v10/channels/${CHANNEL_ID}/messages`, form,
@@ -100,11 +80,14 @@ const enviarMensaje = async (formData: FormData) => {
         Authorization: `Bot ${DISCORD_TOKEN}`
       }
     })
+  } catch {
+    return new Error("Limite excedido");
+  }
+
 
 }
 
 export {
   enviarMensaje,
-  enviarArchivo,
   enviarCodigo
 }

@@ -24,17 +24,14 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
+  route: string;
 }>) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-
-        <FormularioAntiBot />
-        <div className="flex flex-col-reverse md:flex-row max-h-screen items-center justify-center font-sans text-black bg-background  border-b border-black">          {children}
-
-        </div>
+      {children}
       </body>
     </html>
   );

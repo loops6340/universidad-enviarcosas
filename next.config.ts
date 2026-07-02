@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   /* config options here */
   images: {
     "domains": ["cdn.discordapp.com"]
+  },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "4.5mb"
+    }
   }
 };
 

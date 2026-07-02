@@ -6,7 +6,7 @@ const ArchivoClientFuncs = ({ content }: { content: string }) => {
   }
 
   return (
-    <button onClick={copyToClipboard} className='bg-background rounded p-2 mt-2 cursor-pointer'>
+    <button onClick={copyToClipboard} className='text-darkmode-light-primary bg-background rounded p-2 mt-2 cursor-pointer'>
         Copiar al portapapeles
     </button>
   )
