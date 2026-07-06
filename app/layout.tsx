@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: "Buenosdias",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/chat">) {
+export default function RootLayout({ children }: any) {
   return (
     <html lang="en">
       <body
