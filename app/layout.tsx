@@ -21,11 +21,7 @@ export const metadata: Metadata = {
   description: "Buenosdias",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: LayoutProps<"/chat">) {
   return (
     <html lang="en">
       <body
