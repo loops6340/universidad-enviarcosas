@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: "Buenosdias",
 };
 
-export default function RootLayout({ children }: any) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
       <body

@@ -1,8 +1,5 @@
-type Props = {
-    children: string;
-}
 
-function ChatLayout({ children }: Props) {
+function ChatLayout({ children }: LayoutProps<"/">) {
     return (
         <>
             {children}
