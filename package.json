@@ -15,6 +15,7 @@
     "@codemirror/view": "^6.38.6",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@js-temporal/polyfill": "^0.5.1",
     "@mui/material": "^9.2.0",
     "@types/randomcolor": "^0.5.9",
     "@uiw/codemirror-theme-aura": "^4.25.10",
