@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-//@ts-ignore
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-expect-error
+
 import "./globals.css";
-import FormularoDeEnvioADiscord from "@/components/FormularioDeCodigo";
-import FormularioAntiBot from "@/components/FormularioAntiBot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased  dark:bg-dm-dark-primary`}
       >
       {children}
       </body>

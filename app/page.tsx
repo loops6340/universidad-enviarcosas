@@ -5,9 +5,11 @@ const page = () => {
   return (
     <div className="w-screen text-darkmode-light-primary">
         <NavBar route="Kasita"/>
-        ola despies ago la pagina prinsipal aki esta el /chat :'v
-        <br />
-        <Link className="font-bold text-4xl" href="/chat">aki</Link>
+        <div className="p-2">
+          ola despies ago la pagina prinsipal aki esta el /chat {":'v"}
+          <br />
+          <Link className="font-bold text-4xl" href="/chat">/Chat</Link>
+        </div>
     </div>
   )
 }

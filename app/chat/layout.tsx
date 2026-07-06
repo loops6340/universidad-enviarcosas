@@ -1,9 +1,10 @@
-import FormularioAntiBot from "@/components/FormularioAntiBot";
+type Props = {
+    children: string;
+}
 
-function ChatLayout({ children }: { children: any }) {
+function ChatLayout({ children }: Props) {
     return (
         <>
-            {/* <FormularioAntiBot /> */}
             {children}
         </>
     )

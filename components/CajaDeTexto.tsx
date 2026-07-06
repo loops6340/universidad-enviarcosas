@@ -3,8 +3,21 @@
 import { enviarMensaje } from '@/actions/enviar'
 import { useRef, useState, useTransition } from 'react'
 import { useFormStatus } from 'react-dom'
+import DarkButton from './UI/DarkButton'
+import DarkInput from './UI/DarkInput'
+import { AiFillEye } from 'react-icons/ai'
+import { AiOutlineSend } from "react-icons/ai";
+import { BsFillFileEarmarkPlusFill } from "react-icons/bs";
 
-const CajaDeTexto = ({ updateMessages, disabled, transition, author, setAuthor }: { author: string, setAuthor: any, transition: any, updateMessages: any, disabled: boolean}) => {
+interface Props {
+  updateMessages: () => void;
+  disabled: boolean;
+  transition: (param: () => void) => void;
+  author: string;
+  setAuthor: (author: string) => void
+}
+
+const CajaDeTexto = ({ updateMessages, disabled, transition, author, setAuthor }: Props) => {
 
   const fileInput = useRef<HTMLInputElement>(null)
 
@@ -28,11 +41,15 @@ const CajaDeTexto = ({ updateMessages, disabled, transition, author, setAuthor }
         {selectedFile}
       </div>}
       <form action={onSubmit} className="bg-white flex border border-black border-l-0">
-        <input value={author} onChange={(e) => setAuthor(e.target.value)} disabled={disabled} type="text" name="autor" placeholder="autor" className='bg-background p-2 focus:outline-0 w-25 text-darkmode-light-primary'/>
-        <label htmlFor="file-upload" className='flex items-center p-2 border-l border-r'>📎</label>
+        <DarkInput notRounded className="w-25" value={author} onChange={(e) => setAuthor(e.target.value)} disabled={disabled} type="text" name="autor" placeholder="autor" />
+        <label htmlFor="file-upload" className='cursor-pointer dark:bg-dm-light-primary  flex items-center p-2 border-l border-r'>
+          <BsFillFileEarmarkPlusFill></BsFillFileEarmarkPlusFill>
+        </label>
         <input onChange={(e) => setSelectedFile(e.target.value)} ref={fileInput} id="file-upload" type="file" className="hidden" name="file" />
-        <input disabled={disabled} type="text" required name="contenido" className='p-2 focus:outline-0 w-full'/>
-        <button disabled={disabled} className='p-2 bg-background  transition-[0.2s] hover:bg-cyan-200 cursor-pointer text-darkmode-light-primary'>Enviar</button>
+        <input disabled={disabled} type="text" required name="contenido" className='p-2 dark:bg-dm-light-primary focus:outline-0 w-full'/>
+        <DarkButton notRounded className='w-20 flex items-center text-[20px]'>
+          <AiOutlineSend className="ml-auto mr-auto"/>
+        </DarkButton>
       </form>
     </div>
   )

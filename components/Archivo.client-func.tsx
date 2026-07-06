@@ -1,4 +1,8 @@
 "use client"
+
+import DarkButton from "./UI/DarkButton"
+import { BsClipboard2 } from "react-icons/bs";
+
 const ArchivoClientFuncs = ({ content }: { content: string }) => {
   
   const copyToClipboard = async () => {
@@ -6,9 +10,10 @@ const ArchivoClientFuncs = ({ content }: { content: string }) => {
   }
 
   return (
-    <button onClick={copyToClipboard} className='text-darkmode-light-primary bg-background rounded p-2 mt-2 cursor-pointer'>
-        Copiar al portapapeles
-    </button>
+
+    <DarkButton onClick={copyToClipboard} className="mt-2"><BsClipboard2></BsClipboard2></DarkButton>
+
+
   )
 }
 
